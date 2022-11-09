@@ -1,25 +1,35 @@
 import config from '../config.json';
 import styled from 'styled-components';
+import { CSSReset } from '../src/components/CSSReset';
+import Menu from '../src/components/Menu';
+import { StyledTimeline } from '../src/components/Timeline';
 
 function HomePage() {
-  const estilosDaHomepage = { backgroundColor: 'red' };
-
-  // console.log(config.playlists);
-
   return (
-    <div style={estilosDaHomepage}>
-      <Menu />
-      <Header />
-      <Timeline playlists={config.playlists} />
-    </div>
+    <>
+      <CSSReset />
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          flex: 1,
+          // backgroundColor: "red",
+        }}
+      >
+        <Menu />
+        <Header />
+        <Timeline playlists={config.playlists} />
+      </div>
+    </>
   );
 }
 
 export default HomePage;
 
-function Menu() {
+/* function Menu() {
   return <div>Menu</div>;
 }
+ */
 
 const StyledHeader = styled.div`
   img {
@@ -33,6 +43,7 @@ const StyledHeader = styled.div`
     width: 100%;
     padding: 16px 32px;
     gap: 16px;
+    margin-top: 50px;
   }
 `;
 function Header() {
@@ -52,14 +63,11 @@ function Header() {
 }
 
 function Timeline(props) {
-  // console.log('Dentro do componente', props.playlists);
   const playlistNames = Object.keys(props.playlists);
   return (
-    <div>
+    <StyledTimeline>
       {playlistNames.map((playlistName) => {
         const videos = props.playlists[playlistName];
-        console.log(playlistName);
-        console.log(videos);
         return (
           <section>
             <h2>{playlistName}</h2>
@@ -76,6 +84,6 @@ function Timeline(props) {
           </section>
         );
       })}
-    </div>
+    </StyledTimeline>
   );
 }

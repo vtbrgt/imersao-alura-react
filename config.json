@@ -3,18 +3,18 @@
   "description": "Front-End Developer",
   "github": "vtbrgt",
   "playlists": {
-    "jojos": [
+    "jojo's bizarre adventure": [
       {
-        "title": "Algum título",
-        "url": "url",
-        "thumb": "thumbnail do video"
+        "title": "Giorno vs Diavolo",
+        "url": "https://www.youtube.com/watch?v=E3BDWTek5fs",
+        "thumb": "https://i.ytimg.com/vi/E3BDWTek5fs/maxresdefault.jpg"
       }
     ],
-    "one-piece": [
+    "one piece": [
       {
-        "title": "Algum título",
-        "url": "url",
-        "thumb": "thumbnail do video"
+        "title": "Luffy vs Rob Lucci",
+        "url": "https://www.youtube.com/watch?v=vh2IdCEIwEc",
+        "thumb": "https://i.ytimg.com/vi/vh2IdCEIwEc/maxresdefault.jpg"
       }
     ]
   }
