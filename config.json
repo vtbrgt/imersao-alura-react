@@ -1,0 +1,21 @@
+{
+  "name": "Vitor Borgatte",
+  "description": "Front-End Developer",
+  "github": "vtbrgt",
+  "playlists": {
+    "jojos": [
+      {
+        "title": "Algum título",
+        "url": "url",
+        "thumb": "thumbnail do video"
+      }
+    ],
+    "one-piece": [
+      {
+        "title": "Algum título",
+        "url": "url",
+        "thumb": "thumbnail do video"
+      }
+    ]
+  }
+}
