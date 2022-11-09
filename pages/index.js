@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { CSSReset } from '../src/components/CSSReset';
 import Menu from '../src/components/Menu';
 import { StyledTimeline } from '../src/components/Timeline';
+import Favoritos from '../src/components/Favoritos';
 
 function HomePage() {
   const [valorDoFiltro, setvalorDoFiltro] = React.useState('');
@@ -24,6 +25,7 @@ function HomePage() {
         />
         <Header />
         <Timeline searchValue={valorDoFiltro} playlists={config.playlists} />
+        <Favoritos />
       </div>
     </>
   );
@@ -90,7 +92,7 @@ function Timeline({ searchValue, ...props }) {
                 })
                 .map((video) => {
                   return (
-                    <a key={video.url} href={video.url}>
+                    <a key={video.url} target="_blank" href={video.url}>
                       <img src={video.thumb} />
                       <span>{video.title}</span>
                     </a>

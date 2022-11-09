@@ -48,5 +48,22 @@
         "thumb": "https://i.ytimg.com/vi/yKQrBx6KV3I/hqdefault.jpg"
       }
     ]
-  }
+  },
+  "favorites": [
+    {
+      "name": "Mario Souto",
+      "pp": "https://avatars.githubusercontent.com/u/13791385?v=4",
+      "github": "https://github.com/omariosouto"
+    },
+    {
+      "name": "Pedro Marins",
+      "pp": "https://avatars.githubusercontent.com/u/215004?v=4",
+      "github": "https://github.com/pedromarins"
+    },
+    {
+      "name": "Rafaella Ballerini",
+      "pp": "https://avatars.githubusercontent.com/u/54322854?v=4",
+      "github": "https://github.com/rafaballerini"
+    }
+  ]
 }
