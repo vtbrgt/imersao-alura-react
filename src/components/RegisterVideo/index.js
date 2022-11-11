@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyledRegisterVideo } from './styles';
+import { createClient } from '@supabase/supabase-js';
 
 // Custom Hook
 function useForm(propsDoForm) {
@@ -20,11 +21,20 @@ function useForm(propsDoForm) {
   };
 }
 
+const PROJECT_URL = 'https://rpwbrijcxfdgvmiwtuev.supabase.co';
+const PUBLIC_KEY =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJwd2JyaWpjeGZkZ3ZtaXd0dWV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjgxODk2NjksImV4cCI6MTk4Mzc2NTY2OX0.Lll4BNNfElyCPFyWidyOWJf5RwlDBsX_XvlK2iXMQPo';
+const subapase = createClient(PROJECT_URL, PUBLIC_KEY);
+
+function getThumbnail(url) {
+  return `https://img.youtube.com/vi/${url.split('v=')[1]}/hqdefault.jpg`;
+}
+
 export default function RegisterVideo() {
   const formCadastro = useForm({
     initialValues: {
-      titulo: 'Nico Robin - Ennies Lobbie',
-      url: 'https://www.youtube.com',
+      titulo: 'Nico Robin - Ennies Lobby',
+      url: 'https://www.youtube.com/watch?v=vbR40-ZxZ24',
     },
   });
   const [formVisivel, setFormVisivel] = React.useState(false);
@@ -38,6 +48,22 @@ export default function RegisterVideo() {
         <form
           onSubmit={(event) => {
             event.preventDefault();
+
+            subapase
+              .from('video')
+              .insert({
+                title: formCadastro.values.titulo,
+                url: formCadastro.values.url,
+                thumb: getThumbnail(formCadastro.values.url),
+                playlist: 'one piece',
+              })
+              .then((oqueveio) => {
+                console.log(oqueveio);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+
             setFormVisivel(false);
             formCadastro.clearForm();
           }}
