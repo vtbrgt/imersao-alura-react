@@ -4,32 +4,24 @@ import styled from 'styled-components';
 import Menu from '../src/components/Menu';
 import { StyledTimeline } from '../src/components/Timeline';
 import Favoritos from '../src/components/Favoritos';
-import { createClient } from '@supabase/supabase-js';
-
-const PROJECT_URL = 'https://rpwbrijcxfdgvmiwtuev.supabase.co';
-const PUBLIC_KEY =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJwd2JyaWpjeGZkZ3ZtaXd0dWV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjgxODk2NjksImV4cCI6MTk4Mzc2NTY2OX0.Lll4BNNfElyCPFyWidyOWJf5RwlDBsX_XvlK2iXMQPo';
-const subapase = createClient(PROJECT_URL, PUBLIC_KEY);
+import { videoService } from '../src/services/videoService';
 
 function HomePage() {
+  const service = videoService();
   const [valorDoFiltro, setvalorDoFiltro] = React.useState('');
   const [playlists, setPlaylists] = React.useState({}); // config.playlists
-  /* const playlists = {
-    "one piece": []
-  } */
 
   React.useEffect(() => {
-    console.log('useEffect');
-    subapase
-      .from('video')
-      .select('*')
-      .then((dados) => {
-        console.log(dados.data);
-        dados.data.forEach((video) => {
-          playlists[dados.data[0].playlist]?.push(video);
-        });
-        setPlaylists(playlists);
+    service.getAllVideos().then((dados) => {
+      const novasPlaylists = { ...playlists };
+      dados.data.forEach((video) => {
+        if (!novasPlaylists[video.playlist]) {
+          novasPlaylists[video.playlist] = [];
+        }
+        novasPlaylists[video.playlist].push(video);
       });
+      setPlaylists(novasPlaylists);
+    });
   }, []);
 
   return (

@@ -33,8 +33,8 @@ function getThumbnail(url) {
 export default function RegisterVideo() {
   const formCadastro = useForm({
     initialValues: {
-      titulo: 'Nico Robin - Ennies Lobby',
-      url: 'https://www.youtube.com/watch?v=vbR40-ZxZ24',
+      titulo: '',
+      url: '',
     },
   });
   const [formVisivel, setFormVisivel] = React.useState(false);
