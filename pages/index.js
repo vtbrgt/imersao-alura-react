@@ -25,33 +25,16 @@ function HomePage() {
   }, []);
 
   return (
-    <>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          flex: 1,
-          // backgroundColor: "red",
-        }}
-      >
-        <Menu
-          valorDoFiltro={valorDoFiltro}
-          setvalorDoFiltro={setvalorDoFiltro}
-        />
-        <Header />
-        <Timeline searchValue={valorDoFiltro} playlists={playlists} />
-        <Favoritos />
-      </div>
-    </>
+    <div>
+      <Menu valorDoFiltro={valorDoFiltro} setvalorDoFiltro={setvalorDoFiltro} />
+      <Header />
+      <Timeline searchValue={valorDoFiltro} playlists={playlists} />
+      <Favoritos />
+    </div>
   );
 }
 
 export default HomePage;
-
-/* function Menu() {
-  return <div>Menu</div>;
-}
- */
 
 const StyledHeader = styled.div`
   background-color: ${({ theme }) => theme.backgroundLevel1};

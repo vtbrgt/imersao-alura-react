@@ -12,6 +12,17 @@ export const CSSReset = createGlobalStyle`
     background-color: ${({ theme }) => theme.backgroundBase};
     color: ${({ theme }) => theme.textColorBase};
   }
+  body::-webkit-scrollbar {
+    height: 8px;
+  }
+  body::-webkit-scrollbar-track {
+    background-color: ${({ theme }) => theme.backgroundLevel1};
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: red;
+    border-radius: 20px;
+    border: 3px solid ${({ theme }) => theme.backgroundLevel1};
+  }
   /* NextJS */
   html {
     display: flex;
